@@ -4,19 +4,23 @@ class RentHousesController < ApplicationController
   # GET /rent_houses or /rent_houses.json
   def index
     @rent_houses = RentHouse.all
+    @nearest_stations = NearestStation.all
   end
 
   # GET /rent_houses/1 or /rent_houses/1.json
   def show
+    # @rent_house.nearest_stations(rent_house_params)
   end
 
   # GET /rent_houses/new
   def new
     @rent_house = RentHouse.new
+    @rent_house.nearest_stations.build
   end
 
   # GET /rent_houses/1/edit
   def edit
+    @rent_house.nearest_stations.build
   end
 
   # POST /rent_houses or /rent_houses.json
@@ -25,6 +29,7 @@ class RentHousesController < ApplicationController
 
     respond_to do |format|
       if @rent_house.save
+
         format.html { redirect_to @rent_house, notice: "Rent house was successfully created." }
         format.json { render :show, status: :created, location: @rent_house }
       else
@@ -64,6 +69,7 @@ class RentHousesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def rent_house_params
-      params.require(:rent_house).permit(:name, :rent, :address, :age, :note)
+      params.require(:rent_house).permit(:name, :rent, :address, :age, :note,
+                                          nearest_stations_attributes: [:line, :station, :minute] )
     end
 end

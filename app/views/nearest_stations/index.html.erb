@@ -18,9 +18,9 @@
         <td><%= nearest_station.line %></td>
         <td><%= nearest_station.station %></td>
         <td><%= nearest_station.minute %></td>
-        <td><%= link_to 'Show', nearest_station %></td>
-        <td><%= link_to 'Edit', edit_nearest_station_path(nearest_station) %></td>
-        <td><%= link_to 'Destroy', nearest_station, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '詳細', nearest_station %></td>
+        <td><%= link_to '編集', edit_nearest_station_path(nearest_station) %></td>
+        <td><%= link_to '削除', nearest_station, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

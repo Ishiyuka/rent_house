@@ -8,6 +8,7 @@ class NearestStationsController < ApplicationController
 
   # GET /nearest_stations/1 or /nearest_stations/1.json
   def show
+    # @nearest_station = @rent_house.nearest_stations
   end
 
   # GET /nearest_stations/new
@@ -19,6 +20,7 @@ class NearestStationsController < ApplicationController
 
   # GET /nearest_stations/1/edit
   def edit
+    @nearest_station = current_rent_house.nearest_stations.build(nearest_station_params)
   end
 
   # POST /nearest_stations or /nearest_stations.json
