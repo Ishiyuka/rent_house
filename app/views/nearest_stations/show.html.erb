@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Line:</strong>
+  <%= @nearest_station.line %>
+</p>
+
+<p>
+  <strong>Station:</strong>
+  <%= @nearest_station.station %>
+</p>
+
+<p>
+  <strong>Minute:</strong>
+  <%= @nearest_station.minute %>
+</p>
+
+<%= link_to '編集', edit_nearest_station_path(@nearest_station) %> |
+<%= link_to '戻る', nearest_stations_path %>
